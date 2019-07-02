@@ -1,5 +1,6 @@
 import QtQuick 2.13
 import QtQuick.Window 2.13
+import QtQuick.Controls 2.13
 
 Window {
     id: mainwindow
@@ -8,25 +9,24 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    Flow {
-        id: element
+    Rectangle {
+        id: rect
         x: 0
         y: 0
-        width: 640
-        height: 480
+        width: mainwindow.width
+        height: mainwindow.height
 
-        Rectangle {
-            id: rectangle
-            width: 200
-            height: 46
-            color: "#729fcf"
+        Button {
+            id: button
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "Change color!"
+        }
 
-            Text {
-                id: element1
-                x: 88
-                y: 16
-                text: qsTr("Teste")
-                font.pixelSize: 12
+        Connections {
+            target: button
+            onClicked: {
+                rect.color = Qt.rgba(Math.random(), Math.random(), Math.random(), 1);
             }
         }
     }
