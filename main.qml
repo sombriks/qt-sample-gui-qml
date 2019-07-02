@@ -18,9 +18,10 @@ Window {
 
         Button {
             id: button
-            anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
+            y: 220
             text: "Change color!"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
         }
 
         Connections {
@@ -32,3 +33,8 @@ Window {
         }
     }
 }
+
+/*##^## Designer {
+    D{i:2;anchors_y:220}
+}
+ ##^##*/
