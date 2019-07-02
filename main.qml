@@ -27,6 +27,7 @@ Window {
             target: button
             onClicked: {
                 rect.color = Qt.rgba(Math.random(), Math.random(), Math.random(), 1);
+                localctx.foo(x)
             }
         }
     }
