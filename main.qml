@@ -24,15 +24,44 @@ Window {
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        Connections {
-            target: button
-            onClicked: {
-                rect.color = Qt.rgba(Math.random(), Math.random(), Math.random(), 1);
-                localctx.foo(x)
-            }
+        TextField {
+            id: nome
+            x: 266
+            y: 127
+            text: localctx.nome
+            anchors.verticalCenterOffset: -46
+            anchors.horizontalCenterOffset: 0
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+    }
+
+    Connections {
+        target: nome
+        onTextEdited: localctx.nome = nome.text
+    }
+
+    Connections {
+        target: parent
+        onClicked: print("clicked")
+    }
+
+    Connections {
+        target: button
+        onClicked: {
+            rect.color = Qt.rgba(Math.random(), Math.random(), Math.random(), 1);
+            localctx.foo(x)
         }
     }
 }
+
+
+
+
+
+
+
+
 
 /*##^## Designer {
     D{i:2;anchors_y:220}
